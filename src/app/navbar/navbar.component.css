@@ -1,0 +1,125 @@
+mat-toolbar {
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #202020;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  opacity: 0;
+  transform: translateY(40px);
+  animation: animateIn 1000ms ease 200ms forwards;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin: 8px 8px 8px 0;
+  opacity: 0;
+  transform: translateX(40px);
+  animation: animateInX 1000ms ease 450ms forwards;
+
+  span {
+    margin-left: 8px;
+  }
+}
+
+.container-header:hover {
+  color: #bababa;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 45px; 
+  height: 45px;
+  /* เพิ่ม position relative ให้ container */
+}
+
+.nav-round {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: conic-gradient(from 0deg, #202020, #2b2b2b, #464646, #6c6c6c, #999999, #c6c6c6, #ffffff );
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotateColors 3s linear infinite;
+}
+
+/* รูปภาพ */
+.nav-img {
+  width: 90%;
+  height: 90%;
+  position: relative;
+  border-radius: 50%; 
+  z-index: 1; 
+}
+
+/* Animation for rotating the gradient */
+@keyframes rotateColors {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mobile-menu-icon {
+  display: none; 
+}
+
+mat-menu {
+  display: none;   
+}
+
+.main-button {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: animateIn 1000ms ease 300ms forwards;
+}
+
+@keyframes animateIn {
+  0% {
+      opacity: 0;
+      transform: translateY(40px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes animateInX {
+  0% {
+      opacity: 0;
+      transform: translateX(40px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 795px) {
+  .main-button {
+      display: none;
+  }
+
+  .mobile-menu-icon {
+      display: flex;
+
+  }
+
+  mat-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

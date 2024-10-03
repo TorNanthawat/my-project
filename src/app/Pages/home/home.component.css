@@ -1,0 +1,362 @@
+#projects {
+    padding-top: 60px; 
+    margin-top: -60px;
+  }
+  
+#skills {
+    padding-top: 60px;
+    margin-top: -60px;
+  }
+
+#experience {
+    padding-top: 60px;
+    margin-top: -60px;
+  }
+
+#contact {
+    padding-top: 60px;
+    margin-top: -60px;
+  }
+
+.lazy-load {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+  
+.lazy-load.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+  
+/* รีเซ็ตพื้นฐานเพื่อความยืดหยุ่น */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px; /* ฐานของ rem */
+    line-height: 1.5;
+}
+
+/* ส่วนของ container-flex */
+.container-flex {
+    display: flex;
+    background-color: #f1f1f1;
+    padding: 8rem 15% 4rem 15%; 
+    opacity: 0;
+    transform: translateY(40px);
+    animation: animateIn 1000ms ease 300ms forwards;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.items-flex {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 15%;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: animateIn 1000ms ease forwards;
+}
+
+.info {
+    width: 70%;
+}
+
+.info h1 {
+    color: rgb(41, 41, 41);
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    animation: typeH1 2s steps(26);
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #333;
+    width: 26ch;
+    line-height: 1.2;
+}
+
+.info p {
+    color: rgb(85, 85, 85);
+    font-size: clamp(1rem, 1.5vw, 1.1875rem);
+    line-height: 2rem;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: animateIn 1000ms ease 2100ms forwards;
+}
+
+.image-info {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+
+    opacity: 0;
+    transform: translateX(40px);
+    animation: animateInRight 1000ms ease 2100ms forwards;
+    /* perspective: 1000px; */
+}
+
+.image-info:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.my-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5%;
+
+    /* เคลื่อนที่ตามเมาส์ */
+    /* perspective: 1000px;
+    transition: transform 0.2s ease;
+    transform-style: preserve-3d;
+    transform-origin: center center; */
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.image-info::after, .image-info::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 70%, #333);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 5%;
+    animation: 3s spin linear infinite;
+}
+
+.image-info::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
+/* Footer */
+.main-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #202020;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.footer-upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem 0 2rem 0;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.footer-upper .upper-left {
+    flex-basis: 55%;
+}
+
+.footer-upper .upper-right {
+    flex-basis: 20%;
+}
+
+.footer-upper .upper-right div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-upper .image-logo {
+    margin-right: 0.6rem;
+    width: 35px;
+}
+
+.footer-upper .upper-center {
+    flex-basis: 25%;
+}
+
+.footer-upper h2 {
+    color: white;
+}
+
+.footer-upper p {
+    color: rgb(187, 187, 187);
+    font-size: clamp(0.75rem, 1.5vw, 0.8125rem);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.footer-lower {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #d5d5d5;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.footer-lower p {
+    color: white;
+    font-size: clamp(0.625rem, 1.2vw, 0.75rem);
+    margin: 0;
+    padding: 20px;
+}
+
+
+/* การตอบสนองสำหรับหน้าจอมือถือ */
+@media screen and (max-width: 576px) {
+    .container-flex {
+        padding: 6rem 3rem 2rem 3rem;
+        flex-direction: column;
+    }
+
+    .items-flex {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10%;
+    }
+
+    .info {
+        width: 100%;
+    }
+
+    .info h1 {
+        /* ปรับขนาดฟอนต์สำหรับมือถือ */
+        font-size: clamp(1.35rem, 5vw, 2rem);
+        width: 26ch; /* ปรับความกว้างให้พอดีกับหน้าจอ */
+        animation: typeH1-mobile 3s steps(27);
+        line-height: 1.3; 
+    }
+
+    .info p {
+        /* ปรับขนาดฟอนต์สำหรับมือถือ */
+        font-size: clamp(0.5rem, 4vw, 0.9rem);
+        line-height: 1.5rem;
+    }
+    
+    .image-info {
+        width: 50%;
+        margin-bottom: 2rem;
+    }
+
+    .my-image {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .footer-upper, .footer-lower {
+        width: 80%;
+    }
+
+    .footer-upper {
+        flex-direction: column-reverse;
+    }
+
+    .upper-right {
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 1rem; /* 16px */
+        margin: 0;
+    }
+
+    .main-footer p {
+        font-size: 0.8rem; /* 13px */
+    }
+}
+
+/* การตอบสนองสำหรับแท็บเล็ต */
+@media screen and (min-width: 577px) and (max-width: 1024px) {
+    .container-flex {
+        padding: 6rem 5rem 2rem 5rem;
+    }
+
+    .info h1 {
+        font-size: clamp(0.7rem, 2.65vw, 1.8rem);
+        width: 26ch;
+        animation: typeH1-tablet 3s steps(26); 
+    }
+
+    .info p {
+        font-size: clamp(0.6rem, 1.5vw, 1.125rem);
+        line-height: 1.2rem;
+    }
+
+    .footer-upper, .footer-lower {
+        width: 80%;
+    }
+}
+
+
+/* Animation Keyframes */
+@keyframes animateIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes animateInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes typeH1 {
+    0% {
+        width: 0ch;
+    }
+    100% {
+        width: 26ch;
+    }
+}
+
+@keyframes typeH1-tablet {
+    0% {
+        width: 0ch;
+    }
+    100% {
+        width: 26ch;
+    }
+}
+
+@keyframes typeH1-mobile {
+    0% {
+        width: 0ch;
+    }
+    100% {
+        width: 27ch;
+    }
+}
+
+

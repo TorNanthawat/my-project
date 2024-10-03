@@ -1,0 +1,156 @@
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: animateIn 1000ms ease 400ms forwards;
+  perspective: 1000px;
+}
+
+h1 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 30px 0; 
+  opacity: 0;
+  font-size: 40px;
+  transform: translateY(40px);
+  animation: animateIn 1000ms ease 1000ms forwards;
+}
+
+.experience-card {
+  background-color: #ffffff;
+  color: #000000;
+  width: 50%;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: background-color 0.6s ease, color 0.6s ease;
+  transition: transform 0.3s ease-in-out;
+}
+
+.experience-card:hover {
+  transform: scale(1.05);
+  background-color: #333;
+  color: #fff;
+
+  .date-range {
+    color: #fff;
+  }
+  
+  .job-title {
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .chip {
+    padding: 10px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .chip:hover {
+    padding: 10px;
+    border-radius: 16px;
+    background-color: #000;
+    color: #fff;
+  }
+}
+
+.mat-card-header {
+  padding: 0;
+}
+
+.experience-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  gap: 0.5rem;
+}
+
+.date-range {
+  color: #333;
+  font-size: 14px;
+}
+
+.job-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+mat-card-content p {
+  color: #b0b3b8;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.skills {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.chip-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 10px;
+  border-radius: 16px;
+  background-color: #e0e0e0;
+  color: #333;
+  font-size: 14px;
+}
+
+.chip:hover {
+  padding: 10px;
+  border-radius: 16px;
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Animation */
+@keyframes animateIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+/* สำหรับหน้าจอมือถือ */
+@media screen and (max-width: 576px) {
+  .experience-card {
+    width: 80%;
+    padding: 15px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+}
+
+/* สำหรับหน้าจอแท็บเล็ต */
+@media screen and (min-width: 577px) and (max-width: 1180px) {
+  .experience-card {
+    width: 60%;
+  }
+
+  h1 {
+    text-align: center;
+  }
+}

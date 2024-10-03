@@ -1,0 +1,155 @@
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+h1 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 30px 0; 
+    font-size: 40px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: animateIn 1000ms ease 500ms forwards;
+}
+
+.container-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 95%;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-left-1, .projects-left-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: animateInL 1000ms ease 700ms forwards;
+
+    .left-1, .left-2 {
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+.projects-left-1:hover {
+    .left-1 {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }   
+}
+
+.projects-left-2:hover {
+    .left-2 {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    } 
+}
+
+.projects-right-1, .projects-right-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(40px);
+    animation: animateInR 1000ms ease 700ms forwards;
+
+    .right-1, .right-2 {
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+.projects-right-1:hover {
+    .right-1 {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }   
+}
+
+.projects-right-2:hover {
+    .right-2 {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    } 
+}
+
+.container-items mat-card {
+    text-align: center;
+    margin: 0px 20px 40px 20px;
+    height: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.container-items mat-card:hover {
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+}
+
+.projects-left-1, .projects-left-2, img {
+    width: 90%;
+}
+
+/* Keyframe animation */
+@keyframes animateIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes animateInL {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+@keyframes animateInR {
+    0% {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+
+/* สำหรับหน้าจอมือถือ */
+@media screen and (max-width: 576px) {
+    .container-items {
+        grid-template-columns: 1fr; /* 1 คอลัมน์ในหน้าจอมือถือ */
+        width: 100%;
+    }
+
+
+}
+
+/* สำหรับหน้าจอแท็บเล็ต */
+@media screen and (min-width: 577px) and (max-width: 1024px) {
+    .container-items {
+        grid-template-columns: 1fr; /* 2 คอลัมน์ในแท็บเล็ต */
+        gap: 15px;
+        width: 100%;
+    }
+
+
+}

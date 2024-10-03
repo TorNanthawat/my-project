@@ -1,0 +1,86 @@
+<mat-toolbar>
+  <div class="container-header" [routerLink]="['/home']">
+    <div class="image-container">
+      <img class="nav-img" src="assets/images/my-photo.jpg" alt="Logo" />
+      <div class="nav-round"></div>
+    </div>
+    <span>Nanthawat Wangpoomyai</span>
+  </div>
+
+  <div class="button-nav">
+    <button
+      class="main-button"
+      mat-button
+      routerLink="/home"
+      fragment="projects"
+    >
+      <mat-icon>work</mat-icon>
+      <span>Projects</span>
+    </button>
+
+    <button class="main-button" mat-button routerLink="/home" fragment="skills">
+      <mat-icon>psychology</mat-icon>
+      <span>Skills</span>
+    </button>
+
+    <button
+      class="main-button"
+      mat-button
+      routerLink="/home"
+      fragment="experience"
+    >
+      <mat-icon>business</mat-icon>
+      <span>Experience</span>
+    </button>
+
+    <button
+      class="main-button"
+      mat-button
+      routerLink="/home"
+      fragment="contact"
+    >
+      <mat-icon>mail</mat-icon>
+      <span>Contact</span>
+    </button>
+
+    <button
+      class="main-button"
+      mat-button
+      href="/assets/resume.pdf"
+      target="_blank"
+    >
+      <mat-icon>description</mat-icon>
+      <span>Resume</span>
+    </button>
+
+    <button mat-icon-button class="mobile-menu-icon" [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/home" fragment="projects">
+          <mat-icon>work</mat-icon>
+          <span>Projects</span>
+        </button>
+
+        <button mat-menu-item routerLink="/home" fragment="skills">
+          <mat-icon>psychology</mat-icon>
+          <span>Skills</span>
+        </button>
+
+        <button mat-menu-item routerLink="/home" fragment="experience">
+          <mat-icon>business</mat-icon>
+          <span>Experience</span>
+        </button>
+
+        <button mat-menu-item routerLink="/home" fragment="contact">
+          <mat-icon>mail</mat-icon>
+          <span>Contact</span>
+        </button>
+
+        <button mat-menu-item href="/assets/resume.pdf" target="_blank">
+          <mat-icon>description</mat-icon>
+          <span>Resume</span>
+        </button>
+      </mat-menu>
+    </button>
+  </div>
+</mat-toolbar>

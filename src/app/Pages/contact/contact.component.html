@@ -1,0 +1,79 @@
+<div class="contact-container">
+  <h1><b>CONTACT</b></h1>
+
+    <mat-card class="form-contact">
+      <form [formGroup]="form" (ngSubmit)="send()">
+        <!-- ชื่อ -->
+        <label for="name">Name</label>
+        <input
+          formControlName="form_name"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter Your Name"
+        />
+        <div
+          *ngIf="
+            form.get('form_name')?.invalid && form.get('form_name')?.touched
+          "
+          class="error"
+        >
+          Name is required.
+        </div>
+
+        <!-- อีเมล์ -->
+        <label for="email" style="padding-top: 20px">Email</label>
+        <input
+          formControlName="form_email"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter Your Email"
+          required
+        />
+        <div
+          *ngIf="
+            form.get('form_email')?.invalid && form.get('form_email')?.touched
+          "
+          class="error"
+        >
+          <span *ngIf="form.get('form_email')?.errors?.['required']"
+            >Email is required.</span
+          >
+          <span *ngIf="form.get('form_email')?.errors?.['email']"
+            >Please enter a valid email.</span
+          >
+        </div>
+
+        <!-- ข้อความ -->
+        <label for="message" style="padding-top: 20px">Message</label>
+        <textarea
+          formControlName="message"
+          rows="5"
+          placeholder="Enter Your Message"
+        ></textarea>
+        <div
+          *ngIf="form.get('message')?.invalid && form.get('message')?.touched"
+          class="error"
+        >
+          Message is required.
+        </div>
+
+        <button mat-raised-button type="submit" [disabled]="form.invalid">
+          Submit
+        </button>
+      </form>
+    </mat-card>
+
+    <mat-card class="contact-other">
+      <div class="contact-other-1">
+        <mat-icon>email</mat-icon>
+        <mat-icon>phone</mat-icon>
+      </div>
+      <div class="contact-other-2">
+        <p>nanthawat.nt.2409{{ addSign }}gmail.com</p>
+        <p>095-1903377</p>
+      </div>
+    </mat-card>
+
+</div>

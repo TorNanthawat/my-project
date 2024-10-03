@@ -1,0 +1,92 @@
+<div>
+  <app-navbar></app-navbar>
+</div>
+<div class="container-flex lazy-load">
+  <div class="items-flex">
+    <div class="info">
+      <h1>Hi, I'm <b>Nanthawat Wangpoomyai</b></h1>
+      <p>
+        I'm a <b>Front-End Developer</b> with a focus on creating
+        <b>responsive, user-friendly web applications</b>. Eager to bring ideas
+        to life through <b>clean and efficient code</b>.
+      </p>
+    </div>
+
+    <!-- (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()"
+    [style.transform]=" 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY +
+    'deg)' " -->
+
+    <div class="image-info">
+      <img
+        class="my-image"
+        src="assets/images/my-photo.jpg"
+        alt="Profile Image"
+      />
+    </div>
+  </div>
+</div>
+
+<section id="projects" class="lazy-load" appLazyLoad>
+  <app-projects></app-projects>
+</section>
+<section id="skills" class="lazy-load" appLazyLoad>
+  <app-skills></app-skills>
+</section>
+<section id="experience" class="lazy-load" appLazyLoad>
+  <app-experience></app-experience>
+</section>
+<section id="contact" class="lazy-load" appLazyLoad>
+  <app-contact></app-contact>
+</section>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-upper">
+    <div class="upper-left">
+      <h2><b>NANTHAWAT WANGPOOMYAI</b></h2>
+      <p>
+        I'm a Front-End Developer with a focus on creating responsive,
+        user-friendly web applications. Eager to bring ideas to life through
+        clean and efficient code.
+      </p>
+    </div>
+    <div class="upper-center"></div>
+    <div class="upper-right">
+      <h2><b>SOCIAL</b></h2>
+      <div class="image-upper">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/TorNanthawat"
+        >
+          <img class="image-logo" src="assets/images/github-logo.png" />
+        </a>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=nanthawat.nt.2409@gmail.com"
+        >
+          <img class="image-logo" src="assets/images/gmail-logo.png" />
+        </a>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://linkedin.com/in/nanthawat-profile"
+        >
+          <img class="image-logo" src="assets/images/in-logo.png" />
+        </a>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://line.me/ti/p/655b0IzKMe"
+        >
+          <img class="image-logo" src="assets/images/line-logo.png" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-lower">
+    <p>&copy; 2024 Nanthawat Wangpoomyai. All rights reserved.</p>
+  </div>
+</footer>
