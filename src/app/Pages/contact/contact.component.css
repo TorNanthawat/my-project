@@ -144,6 +144,6 @@
 /* สำหรับหน้าจอแท็บเล็ต */
 @media screen and (min-width: 577px) and (max-width: 1180px) {
   .form-contact {
-    width: 60%;
+    width: 70%;
   } 
 }
